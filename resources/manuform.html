@@ -41,8 +41,7 @@
 <div class="row">
   <div class="colum column-75">
     <p>
-      If you have downloaded JSON config from this site in the past, you might
-      want to try to open it here again:
+      如果你过去从这个网站下载过JSON配置，那么可以在这里上传之后导入上次的设置：
     </p>
     <input
       type="file"
@@ -59,10 +58,10 @@
   <div class="column column-75">
     <form method="POST" action="/manuform">
       <label for="keys">
-        <h3>Keys</h3>
+        <h3>按键</h3>
       </label>
       <fieldset name="keys" id="keys">
-        <label for="keys.columns">Number of columns (4 - 7)</label>
+        <label for="keys.columns">列数 (4 - 7)</label>
         <input
           type="number"
           name="keys.columns"
@@ -71,7 +70,7 @@
           min="4"
           max="9"
         />
-        <label for="keys.rows">Number of rows (3 - 6)</label>
+        <label for="keys.rows">行数 (3 - 6)</label>
         <input
           type="number"
           name="keys.rows"
@@ -80,7 +79,7 @@
           min="3"
           max="7"
         />
-        <label for="keys.thumb-count">Thumb Key Count</label>
+        <label for="keys.thumb-count">拇指区按键数</label>
         <select id="keys.thumb-count" name="keys.thumb-count">
           <option value="six">6 (Default)</option>
           <option value="five">5 (Mini)</option>
@@ -89,53 +88,53 @@
           <option value="three-mini">3 (Minidox)</option>
           <option value="two">2</option>
         </select>
-        <label for="keys.last-row">Last Row Key Counts?</label>
+        <label for="keys.last-row">最下面一行按键数？</label>
         <select id="keys.last-row" name="keys.last-row">
-          <option value="two">Two (Default Dactyl Manuform).</option>
-          <option value="zero">No last row.</option>
-          <option value="full">Use all keys.</option>
+          <option value="two">2（Dactyl Manuform默认）</option>
+          <option value="zero">无</option>
+          <option value="full">全部</option>
         </select>
-        <label for="keys.switch-type">Key Hole</label>
+        <label for="keys.switch-type">按键孔位</label>
         <select id="keys.switch-type" name="keys.switch-type">
-          <option value="box">Box and MX</option>
+          <option value="box">Box和MX</option>
           <option value="mx">MX</option>
-          <option value="mx-snap-in">MX snap-in (one way)</option>
+          <option value="mx-snap-in">MX带槽（单向）</option>
           <option value="alps">Alps</option>
-          <option value="choc">Choc (Experimental)</option>
-          <option value="kailh">Kailh (Experimental)</option>
+          <option value="choc">凯华choc矮轴（测试）</option>
+          <option value="kailh">凯华（测试）</option>
         </select>
-        <label for="keys.inner-column">Inner Index Finger's Column?</label>
+        <label for="keys.inner-column">食指列？</label>
         <select id="keys.inner-column" name="keys.inner-column">
-          <option value="normie">Normal</option>
-          <option value="outie">Use inner column (like ergodox)</option>
-          <option value="innie">Without</option>
+          <option value="normie">默认（不附加）</option>
+          <option value="outie">里面再加一列（参照ergodox）</option>
+          <option value="innie">去掉</option>
         </select>
         <label for="keys.hide-last-pinky">
-          Hide Bottom Pinky? (see Kinesis Advantage's Layout)
+          隐藏底部小指？（参照Kinesis Advantage的布局）
         </label>
         <select id="keys.hide-last-pinky" name="keys.hide-last-pinky">
-          <option value="false">No</option>
-          <option value="true">Yes</option>
+          <option value="false">否</option>
+          <option value="true">是</option>
         </select>
       </fieldset>
       <label for="curve">
-        <h3>Curvature & Tenting</h3>
+        <h3>曲率和倾斜度</h3>
       </label>
       <fieldset name="curve" id="curve">
-        <label for="curve.alpha">Column's Curvature</label>
+        <label for="curve.alpha">列的曲率</label>
         <select id="curve.alpha" name="curve.alpha">
           <option value="12">pi/12</option>
           {% for cc in column-curvature %}
           <option value="{{cc}}">pi/{{cc}}</option>
           {% endfor %}
         </select>
-        <label for="curve.pinky-alpha">Pinky's Column's Curvature</label>
+        <label for="curve.pinky-alpha">小拇指列的曲率</label>
         <select id="curve.pinky-alpha" name="curve.pinky-alpha">
           {% for pcc in pinky-column-curvature %}
           <option value="{{pcc}}">pi/{{pcc}}</option>
           {% endfor %}
         </select>
-        <label for="curve.beta">Row's Curvature</label>
+        <label for="curve.beta">行的曲率</label>
         <select id="curve.beta" name="curve.beta" value="pi/36">
           <option value="36">pi/36</option>
           {% for rc in row-curvature %}
@@ -143,21 +142,21 @@
           {% endfor %}
         </select>
         <label for="curve.centecol">
-          Center of the curvature for the column
+          以哪一列作为行的曲率的中心
         </label>
         <select id="curve.centercol" name="curve.centercol">
-          <option value="4">Pinky finger's column</option>
-          <option value="3">Ring finger's column</option>
-          <option value="2">Middle finger's column</option>
-          <option value="1">Index finger's column.</option>
+          <option value="4">小拇指列</option>
+          <option value="3">无名指列</option>
+          <option value="2">中指列</option>
+          <option value="1">食指列</option>
         </select>
-        <label for="curve.tenting">Tenting Angle</label>
+        <label for="curve.tenting">倾斜度</label>
         <select id="curve.tenting" name="curve.tenting">
           {% for ta in tenting-angle %}
           <option value="{{ta}}">pi/{{ta}}</option>
           {% endfor %}
         </select>
-        <label for="curve.rotate-x">Rotation around row axis</label>
+        <label for="curve.rotate-x">行旋转</label>
         <select id="curve.rotate-x" name="curve.rotate-x">
           <option value="180">pi/180</option>
           {% for ta in rotate-x %}
@@ -166,51 +165,50 @@
         </select>
       </fieldset>
       <label for="connector">
-        <h3>Connectors</h3>
+        <h3>接口</h3>
       </label>
       <fieldset name="connector" id="connector">
         <label for="connector.external">
-          Use loligagger's external holder ?
+          使用loligagger的外部支架？
         </label>
         <select
           id="connector.external"
           name="connector.external"
           onchange="toggle_connectors_fields()"
         >
-          <option value="false">No</option>
-          <option value="true">Yes</option>
+          <option value="false">否</option>
+          <option value="true">是</option>
         </select>
-        <label for="connector.type">Connector</label>
+        <label for="connector.type">接口</label>
         <select id="connector.type" name="connector.type">
-          <option value="rj9">RJ9</option>
-          <option value="trrs">TRRS</option>
-          <option value="usb">USB only</option>
-          <option value="none">None</option>
+          <option value="rj9">RJ9网线口</option>
+          <option value="trrs">TRRS音频口</option>
+          <option value="usb">仅USB</option>
+          <option value="none">无</option>
         </select>
-        <label for="connector.micro-usb">USB Hole</label>
+        <label for="connector.micro-usb">USB口</label>
         <select id="connector.micro-usb" name="connector.micro-usb">
-          <option value="false">Mini</option>
-          <option value="true">Micro</option>
+          <option value="false">Mini(t型口)</option>
+          <option value="true">Micro(安卓)</option>
         </select>
       </fieldset>
       <label for="form">
-        <h3>Form of the Case</h3>
+        <h3>键盘外形</h3>
       </label>
       <fieldset name="form" id="form">
         <label for="form.hotswap">
-          Dongguan Kaihua Electronics Co., Ltd (originally named Longhua
-          Electronics)'s Hotswap Socket?
+          添加凯华热插拔轴座？
         </label>
         <select id="form.hotswap" name="form.hotswap">
-          <option value="false">No</option>
-          <option value="true">Yes</option>
+          <option value="false">否</option>
+          <option value="true">是</option>
         </select>
-        <label for="form.thumb-offsets">Thumb cluster offsets</label>
-        <label for="form.thumb-center-offsets">Center</label>
+        <label for="form.thumb-offsets">拇指区x轴位移</label>
+        <label for="form.thumb-center-offsets">中间</label>
         <div class="row" id="form.thumb-offsets">
           <div class="column column-33">
             <label for="form.thumb-cluster-offset-x">
-              X (toward the pinky)
+              X（小拇指方向）
             </label>
             <input
               type="number"
@@ -222,7 +220,7 @@
           </div>
           <div class="column column-33">
             <label for="form.thumb-cluster-offset-y">
-              Y (toward the index)
+              Y（食指方向）
             </label>
             <input
               type="number"
@@ -233,7 +231,7 @@
             />
           </div>
           <div class="column column-33">
-            <label for="form.thumb-cluster-offset-z"> Z (altitude) </label>
+            <label for="form.thumb-cluster-offset-z"> Z（高度）</label>
             <input
               type="number"
               name="form.thumb-cluster-offset-z"
@@ -244,17 +242,17 @@
           </div>
         </div>
         <label for="form.custom-thumb-cluster">
-          Custom thumb cluster (Experimental)
+          自定义拇指组（测试）
         </label>
         <select name="form.custom-thumb-cluster" id="form.custom-thumb-cluster">
-          <option value="false">No</option>
-          <option value="true">Yes</option>
+          <option value="false">否</option>
+          <option value="true">是</option>
         </select>
-        <label for="form.thumb-top-right"> Top right </label>
+        <label for="form.thumb-top-right"> 右上角 </label>
         <div class="row" id="form.thumb-top-right">
           <div class="column column-33">
             <label for="form.thumb-top-right-offset-x">
-              X (toward the pinky)
+              X（小拇指方向）
             </label>
             <input
               type="number"
@@ -266,7 +264,7 @@
           </div>
           <div class="column column-33">
             <label for="form.thumb-top-right-offset-y">
-              Y (toward the index)
+              Y（食指方向）
             </label>
             <input
               type="number"
@@ -277,7 +275,7 @@
             />
           </div>
           <div class="column column-33">
-            <label for="form.thumb-top-right-offset-z">Z (altitude)</label>
+            <label for="form.thumb-top-right-offset-z">Z（高度）</label>
             <input
               type="number"
               name="form.thumb-top-right-offset-z"
@@ -290,13 +288,13 @@
         <div class="row">
           <div class="column column-33">
             <label for="form.thumb-top-right-tenting-x">
-              X (index-pinky axis) (deg)
+              X方向度数（小拇指方向）
             </label>
             <select
               id="form.thumb-top-right-tenting-x"
               name="form.thumb-top-right-tenting-x"
             >
-              <option value="69">Default (without curvature)</option>
+              <option value="69">默认（无曲率）</option>
               {% for ttx in thumb-tenting %}
               <option value="{{ttx}}">{{ttx}}</option>
               {% endfor %}
@@ -304,13 +302,13 @@
           </div>
           <div class="column column-33">
             <label for="form.thumb-top-right-tenting-y">
-              Y (index axis) (deg)
+              Y方向度数（食指方向）
             </label>
             <select
               id="form.thumb-top-right-tenting-y"
               name="form.thumb-top-right-tenting-y"
             >
-              <option value="69">Default (without curvature)</option>
+              <option value="69">默认（无曲率）</option>
               {% for tty in thumb-tenting %}
               <option value="{{tty}}">{{tty}}</option>
               {% endfor %}
@@ -318,13 +316,13 @@
           </div>
           <div class="column column-33">
             <label for="form.thumb-top-right-tenting-z">
-              Z (altitude) (deg)
+              Z方向度数（高度）
             </label>
             <select
               id="form.thumb-top-right-tenting-z"
               name="form.thumb-top-right-tenting-z"
             >
-              <option value="69">Default (without curvature)</option>
+              <option value="69">默认（无曲率）</option>
               {% for ttz in thumb-tenting %}
               <option value="{{ttz}}">{{ttz}}</option>
               {% endfor %}
@@ -332,11 +330,11 @@
           </div>
         </div>
 
-        <label for="form.thumb-top-left">Top left</label>
+        <label for="form.thumb-top-left">左上角</label>
         <div class="row" id="form.thumb-top-left">
           <div class="column column-33">
             <label for="form.thumb-top-left-offset-x">
-              X (toward the pinky) (deg)
+              X方向度数（小拇指方向）
             </label>
             <input
               type="number"
@@ -348,7 +346,7 @@
           </div>
           <div class="column column-33">
             <label for="form.thumb-top-left-offset-y">
-              Y (toward the index) (deg)
+              Y方向度数（食指方向）
             </label>
             <input
               type="number"
@@ -359,7 +357,7 @@
             />
           </div>
           <div class="column column-33">
-            <label for="form.thumb-top-left-offset-z">Z (altitude)</label>
+            <label for="form.thumb-top-left-offset-z">Z（高度）</label>
             <input
               type="number"
               name="form.thumb-top-left-offset-z"
@@ -372,13 +370,13 @@
         <div class="row">
           <div class="column column-33">
             <label for="form.thumb-top-left-tenting-x">
-              X (index-pinky axis) (deg)
+              X方向度数（小拇指方向）
             </label>
             <select
               id="form.thumb-top-left-tenting-x"
               name="form.thumb-top-left-tenting-x"
             >
-              <option value="69">Default (without curvature)</option>
+              <option value="69">默认 (无曲率)</option>
               {% for ttx in thumb-tenting %}
               <option value="{{ttx}}">{{ttx}}</option>
               {% endfor %}
@@ -386,13 +384,13 @@
           </div>
           <div class="column column-33">
             <label for="form.thumb-top-left-tenting-y">
-              Y (index axis) (deg)
+              Y方向度数（食指方向）
             </label>
             <select
               id="form.thumb-top-left-tenting-y"
               name="form.thumb-top-left-tenting-y"
             >
-              <option value="69">Default (without curvature)</option>
+              <option value="69">默认（无曲率）</option>
               {% for tty in thumb-tenting %}
               <option value="{{tty}}">{{tty}}</option>
               {% endfor %}
@@ -400,13 +398,13 @@
           </div>
           <div class="column column-33">
             <label for="form.thumb-top-left-tenting-z">
-              Z (altitude) (deg)
+              Z方向度数（高度）
             </label>
             <select
               id="form.thumb-top-left-tenting-z"
               name="form.thumb-top-left-tenting-z"
             >
-              <option value="69">Default (without curvature)</option>
+              <option value="69">默认（无曲率）</option>
               {% for ttz in thumb-tenting %}
               <option value="{{ttz}}">{{ttz}}</option>
               {% endfor %}
@@ -414,11 +412,11 @@
           </div>
         </div>
 
-        <label for="form.thumb-middle-left">Middle left</label>
+        <label for="form.thumb-middle-left">左边中间</label>
         <div class="row" id="form.thumb-middle-left">
           <div class="column column-33">
             <label for="form.thumb-middle-left-offset-x">
-              X (toward the pinky)
+              X（小拇指方向）
             </label>
             <input
               type="number"
@@ -430,7 +428,7 @@
           </div>
           <div class="column column-33">
             <label for="form.thumb-middle-left-offset-y">
-              Y (toward the index)
+              Y（食指方向）
             </label>
             <input
               type="number"
@@ -441,7 +439,7 @@
             />
           </div>
           <div class="column column-33">
-            <label for="form.thumb-middle-left-offset-z"> Z (altitude) </label>
+            <label for="form.thumb-middle-left-offset-z"> Z（高度） </label>
             <input
               type="number"
               name="form.thumb-middle-left-offset-z"
@@ -454,13 +452,13 @@
         <div class="row">
           <div class="column column-33">
             <label for="form.thumb-middle-left-tenting-x">
-              X (index-pinky axis)
+              X（小拇指方向）
             </label>
             <select
               id="form.thumb-middle-left-tenting-x"
               name="form.thumb-middle-left-tenting-x"
             >
-              <option value="69">Default (without curvature)</option>
+              <option value="69">默认（无曲率）</option>
               {% for ttx in thumb-tenting %}
               <option value="{{ttx}}">{{ttx}}</option>
               {% endfor %}
@@ -468,25 +466,25 @@
           </div>
           <div class="column column-33">
             <label for="form.thumb-middle-left-tenting-y">
-              Y (index axis)
+              Y（食指方向）
             </label>
             <select
               id="form.thumb-middle-left-tenting-y"
               name="form.thumb-middle-left-tenting-y"
             >
-              <option value="69">Default (without curvature)</option>
+              <option value="69">默认（无曲率）</option>
               {% for tty in thumb-tenting %}
               <option value="{{tty}}">{{tty}}</option>
               {% endfor %}
             </select>
           </div>
           <div class="column column-33">
-            <label for="form.thumb-middle-left-tenting-z">Z (altitude)</label>
+            <label for="form.thumb-middle-left-tenting-z">Z（高度）</label>
             <select
               id="form.thumb-middle-left-tenting-z"
               name="form.thumb-middle-left-tenting-z"
             >
-              <option value="69">Default (without curvature)</option>
+              <option value="69">默认（无曲率）</option>
               {% for ttz in thumb-tenting %}
               <option value="{{ttz}}">{{ttz}}</option>
               {% endfor %}
@@ -494,13 +492,13 @@
           </div>
         </div>
 
-        <label for="form.stagger">Stagger?</label>
+        <label for="form.stagger">每行之间错位?</label>
         <select id="form.stagger" name="form.stagger">
-          <option value="true">Yes</option>
-          <option value="false">No</option>
+          <option value="true">是</option>
+          <option value="false">否</option>
         </select>
         <label for="form.index-measurement">
-          Index Finger Measurement (Only used if Stagger? set yes)
+          食指错位（仅在错位为“是”时使用）
         </label>
         <div class="row" id="form.index-measurement">
           <div class="column column-50">
@@ -525,7 +523,7 @@
           </div>
         </div>
         <label for="form.middle-measurement">
-          Middle Finger Measurement (Only used if Stagger? set yes)
+          中指列位移（仅在错位为“是”时使用）
         </label>
         <div class="row" id="form.middle-measurement">
           <div class="column column-50">
@@ -550,7 +548,7 @@
           </div>
         </div>
         <label for="form.ring-measurement">
-          Ring Finger Measurement (Only used if Stagger? set yes)
+          无名指列位移（仅在错位为“是”时使用）
         </label>
         <div class="row" id="form.ring-measurement">
           <div class="column column-50">
@@ -575,7 +573,7 @@
           </div>
         </div>
         <label for="form.pinky-measurement">
-          Pinky Finger Measurement (Only used if Stagger? set yes)
+          小拇指列位移（仅在错位设置为“是”时使用）
         </label>
         <div class="row" id="form.pinky-measurement">
           <div class="column column-50">
@@ -599,19 +597,19 @@
             />
           </div>
         </div>
-        <label for="form.wide-pinky">Wide Pinky?</label>
+        <label for="form.wide-pinky">小拇指最外列使用1.5u键帽？</label>
         <select id="form.wide-pinky" name="form.wide-pinky">
-          <option value="false">No</option>
-          <option value="true">Yes</option>
+          <option value="false">否</option>
+          <option value="true">是</option>
         </select>
-        <label for="form.height-offset">Height Offset</label>
+        <label for="form.height-offset">整体高度增加量</label>
         <select id="form.height-offset" name="form.height-offset">
           {% for ho in height-offset %}
           <option value="{{ho}}">{{ho}}mm</option>
           {% endfor %}
         </select>
         <label for="form.web-thickness"
-          >Web thickness (top part of the keyboard around the keyholes)</label
+          >定位板厚度（按键孔位周围的部分）</label
         >
         <input
           type="number"
@@ -624,7 +622,7 @@
         />
 
         <label for="form.wall-thickness"
-          >wall thickness (around the keyboard)</label
+          >键盘外壁厚度</label
         >
         <input
           type="number"
@@ -636,52 +634,52 @@
           max="7"
         />
 
-        <label for="form.wire-post">Wire Posts?</label>
+        <label for="form.wire-post">走线凸块？</label>
         <select id="form.wire-post" name="form.wire-post">
-          <option value="false">No</option>
-          <option value="true">Yes</option>
+          <option value="false">不加</option>
+          <option value="true">加</option>
         </select>
-        <label for="form.screw-inserts">Screw inserts</label>
+        <label for="form.screw-inserts">螺丝孔</label>
         <select id="form.screw-inserts" name="form.screw-inserts">
-          <option value="false">No screw inserts</option>
-          <option value="true">Screw inserts</option>
+          <option value="false">不加</option>
+          <option value="true">加</option>
         </select>
       </fieldset>
       <label for="misc">
-        <h3>Miscelania</h3>
+        <h3>杂项</h3>
       </label>
       <fieldset name="misc" id="misc">
-        <label for="misc.keycaps">Show Keycaps?</label>
+        <label for="misc.keycaps">显示键帽？</label>
         <select id="misc.keycaps" name="misc.keycaps">
-          <option value="false">No</option>
-          <option value="true">Yes</option>
+          <option value="false">否</option>
+          <option value="true">是</option>
         </select>
-        <label for="misc.right-side">Right side or left side?</label>
+        <label for="misc.right-side">左手还是右手？</label>
         <select id="misc.right-side" name="misc.right-side">
-          <option value="true">Right</option>
-          <option value="false">Left</option>
+          <option value="true">右手</option>
+          <option value="false">左手</option>
         </select>
       </fieldset>
       <input
         class="button-primary"
         type="submit"
         name="generate-case"
-        value="Generate Case"
+        value="生成外壳"
       />
       <input
         class="button-primary"
         type="submit"
         name="generate-plate"
-        value="Generate Plate"
+        value="生成底盖"
       />
       <input
         class="button-primary"
         type="submit"
         name="generate-json"
-        value="Generate JSON"
+        value="生成JSON"
       />
     </form>
-    <p>Loligagger's external holder files:</p>
+    <p>Loligagger的单片机卡槽文件：</p>
     <ul>
       <li>
         <a href="loligagger-external-holder-promicro-v1.stl">Promicro V1</a>
@@ -693,7 +691,7 @@
         <a href="loligagger-external-holder-elite-c-v1.stl">Elite-C V1</a>
       </li>
     </ul>
-    <p>BrownElvis' external holder files:</p>
+    <p>BrownElvis的单片机卡槽文件：</p>
     <ul>
       <li>
         <a href="loligagger-external-holder-promicro-v3-extended.stl">
@@ -703,7 +701,7 @@
     </ul>
   </div>
   <div class="column column-25">
-    <h3>Defaults:</h3>
+    <h3>默认选项：</h3>
     <button onclick="setminidox()">Minidox</button>
     <br />
     <button onclick="setcorne()">Corne</button>
